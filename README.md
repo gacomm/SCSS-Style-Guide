@@ -126,10 +126,8 @@ List Vendor Dependencies First, Then Global Dependencies, Then Components, Then 
 .sidebar {
     float: right;
     width: 33.3333%
-    a {}
     @include breakpoint($phablet) {
       width: 50%;
-      a {}
     }
     @include breakpoint($tablet) {
       width: 33.333%;
