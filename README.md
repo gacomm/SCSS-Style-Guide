@@ -14,7 +14,7 @@ These standards were cobbled together by the fine folks at GA from the following
 * Put 1 space before { in rule declarations.
 * When grouping selectors, keep individual selectors to a single line if IDE allows.
 
-Correct:
+**Correct:**
 ```css
 #selector-1,
 #selector-2,
@@ -24,7 +24,7 @@ Correct:
 }
 ```
 
-Incorrect:
+**Incorrect:**
 ```css
 #selector-1, #selector-2, #selector-3 {
   background: #FFF;
@@ -54,3 +54,30 @@ Elements that occur exactly once inside a page should use IDs, otherwise, use cl
 * **Bad** candidates for ids: navigation, item listings, item view pages (ex: issue view).
 
 When styling a component, start with an element + class namespace (prefer class names over ids), prefer direct descendant selectors by default, and use as little specificity as possible. Here is a good example:
+
+## Class Naming Conventions
+
+* Use hyphens (-) NOT underscores (_) in class names
+* All lowercase
+
+## Global Include SASS Files are Your Table of Contents
+
+List Vendor Dependencies First, Then Global Dependencies, Then Components, Then Sections. Breakup stylesheets into logical SMACSS like areas of concern
+
+```css
+/* Vendor Dependencies */
+@import “compass”;
+@import “susy”;
+
+/* Global Base Dependencies */
+@import “base/colors”;
+@import “base/mixins”;
+
+/* Components */
+@import “components/tabs”;
+@import “components/modals”;
+
+/* Sections */
+@import “layout/header”;
+@import “layout/footer”;
+```
