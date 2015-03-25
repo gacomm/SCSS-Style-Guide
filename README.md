@@ -120,7 +120,7 @@ List Vendor Dependencies First, Then Global Dependencies, Then Components, Then 
 * Use variables for breakpoints
 * Use mobile first approach to ordering breakpoints
 
-**GOOD**
+**Correct**
 
 ```css
 .sidebar {
@@ -140,7 +140,7 @@ List Vendor Dependencies First, Then Global Dependencies, Then Components, Then 
 }
 ```
 
-**BAD**
+**Incorrect**
 
 ```css
 .sidebar {
@@ -168,5 +168,23 @@ List Vendor Dependencies First, Then Global Dependencies, Then Components, Then 
 * If you must use an id selector (#selector) make sure that you have no more than *one* in your rule declaration. A rule like `#header .search #quicksearch { ... }` is considered harmful.
 * When modifying an existing element for a specific use, try to use specific class names. Instead of `.listings-layout.bigger` use rules like `.listings-layout.listings-bigger`. Think about ack/greping your code in the future.
 * The class names `.disabled`, `.mousedown`, `.danger`, `.hover`, `.selected`, and `.active` should always be namespaced by an element (`button.selected` is a good example).
+
+## Partials are named _partial.scss
+
+This is a common naming convention that indicates this file isn't meant to be compiled by itself. It likely has dependencies that would make it impossible to compile by itself.
+
+## Variablize All Colors
+
+Except perhaps white and black. Chances are a color isn't one-off, and even if you think it is, once it's in a variable you might see uses for it elsewhere. Variations on that color can often be handled by the Sass color functions like `lighten()` and `darken()` - which make updating colors easier (change in one place, whole color scheme updates).
+
+## Override File
+
+Use on a case by case basis for stuff like plugins where the author used `!important` _overrides.scss
+
+## Shame Last
+
+In your global stylesheet, @import a _shame.scss file last. This file should only contain temporary quick fixes that are meant to be incorporated later into their proper place. Ideally this file should be empty however it's better to make the hack public and shame it rather than add these styles to the end of random stylesheets where they may never get fixed.
+
+For more on the benefits of the _shame.scss see http://csswizardry.com/2013/04/shame-css/
 
 
