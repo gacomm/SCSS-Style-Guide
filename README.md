@@ -41,7 +41,7 @@ These standards were cobbled together by the fine folks at GA from the following
 * Avoid specifying units for zero values, e.g., margin: 0; instead of margin: 0px;
 
 ## Misc
-* As a rule of thumb, avoid unnecessary nesting in SASS. Don't nest more than 3 levels deep. If you cannot help it, step back and rethink your overall strategy (either the specificity needed, or the layout of the nesting)
+* As a rule of thumb, avoid unnecessary nesting in SASS. Don't nest more than 3 or 4 levels deep as this creates bloated CSS and is too specific. If you cannot help it, step back and rethink your overall strategy (either the specificity needed, or the layout of the nesting)
 
 ## Font-Size Unit
 * Use rem for font-size
