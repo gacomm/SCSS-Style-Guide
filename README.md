@@ -165,8 +165,8 @@ List Vendor Dependencies First, Then Global Dependencies, Then Components, Then 
 
 ## Specificity Guidelines
 
-* If you must use an id selector (#selector) make sure that you have no more than *one* in your rule declaration. A rule like #header .search #quicksearch { ... } is considered harmful.
-* When modifying an existing element for a specific use, try to use specific class names. Instead of.listings-layout.bigger use rules like .listings-layout.listings-bigger. Think about ack/greping your code in the future.
-* The class names disabled, mousedown, danger, hover, selected, and active should always be namespaced by an element (button.selected is a good example).
+* If you must use an id selector (#selector) make sure that you have no more than *one* in your rule declaration. A rule like `#header .search #quicksearch { ... }` is considered harmful.
+* When modifying an existing element for a specific use, try to use specific class names. Instead of `.listings-layout.bigger` use rules like `.listings-layout.listings-bigger`. Think about ack/greping your code in the future.
+* The class names `.disabled`, `.mousedown`, `.danger`, `.hover`, `.selected`, and `.active` should always be namespaced by an element (`button.selected` is a good example).
 
 
