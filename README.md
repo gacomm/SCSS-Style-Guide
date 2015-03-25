@@ -1,6 +1,6 @@
 # GA Communication SCSS/CSS Code Standards
 
-These standards were cobbled together by the fine folks at GA from the following resources:
+These standards were cobbled together by the fine folks at GA from the following sources:
 
 * http://css-tricks.com/sass-style-guide/
 * https://github.com/styleguide/css
