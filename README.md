@@ -1,6 +1,6 @@
 # SCSS-Style-Guide
 
-```javascript
+```css
 .class {
   text-align: left;
 }
