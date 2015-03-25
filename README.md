@@ -60,7 +60,7 @@ When styling a component, start with an element + class namespace (prefer class 
 * Use hyphens (-) NOT underscores (_) in class names
 * All lowercase
 
-## Global Include SASS Files are Your Table of Contents
+## Global Include SCSS Files are Your Table of Contents
 
 List Vendor Dependencies First, Then Global Dependencies, Then Components, Then Sections. Breakup stylesheets into logical SMACSS like areas of concern
 
@@ -81,3 +81,92 @@ List Vendor Dependencies First, Then Global Dependencies, Then Components, Then 
 @import “layout/header”;
 @import “layout/footer”;
 ```
+
+## Property Ordering
+
+```css
+.overlay {
+    background: #fff;
+    color: #777;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+}
+```
+
+## SCSS Nesting Order
+
+* List @extends(s) First
+* List  “Regular Styles” Next
+* List @include(s) Next
+* List Nested Selectors Last
+
+```css
+.weather {
+  @extends %module;
+  background: #fff;
+  @include transition(all 0.3s ease);
+  > h3 {
+    border-bottom: 1px solid #FFF;
+    @include transform(rotate(90deg));
+  }
+}
+```
+
+## Media Query Structure
+
+* Nest media queries within selector
+* Use breakpoints mixin
+* Use variables for breakpoints
+* Use mobile first approach to ordering breakpoints
+
+**GOOD**
+
+```css
+.sidebar {
+    float: right;
+    width: 33.3333%
+    a {}
+    @include breakpoint($phablet) {
+      width: 50%;
+      a {}
+    }
+    @include breakpoint($tablet) {
+      width: 33.333%;
+    }
+    @include breakpoint($desktop) {
+      width: 25%;
+    }
+}
+```
+
+**BAD**
+
+```css
+.sidebar {
+  width: 50%;
+}
+@include breakpoint($phablet) {
+  .sidebar {
+    width: 33.333%
+  }
+}
+@include breakpoint($tablet) {
+  .sidebar {
+    width: 33.333%;
+  }
+}
+@include breakpoint($desktop) {
+  .sidebar {
+    width: 25%;
+  }
+}
+```
+
+## Specificity Guidelines
+
+* If you must use an id selector (#selector) make sure that you have no more than *one* in your rule declaration. A rule like #header .search #quicksearch { ... } is considered harmful.
+* When modifying an existing element for a specific use, try to use specific class names. Instead of.listings-layout.bigger use rules like .listings-layout.listings-bigger. Think about ack/greping your code in the future.
+* The class names disabled, mousedown, danger, hover, selected, and active should always be namespaced by an element (button.selected is a good example).
+
+
